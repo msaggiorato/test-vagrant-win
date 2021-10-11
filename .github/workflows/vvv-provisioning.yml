@@ -25,7 +25,8 @@ jobs:
 
       # Make Symlinks
       - name: Install Vagrant
-        run: choco install vagrant --ignore-detected-reboot
+        continue-on-error: true
+        run: choco install vagrant
 
       - name: Vagrant
         run: vagrant up
