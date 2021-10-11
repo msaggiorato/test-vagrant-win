@@ -21,8 +21,15 @@ jobs:
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
 
+      - name: Cache Vagrant boxes
+        uses: actions/cache@v2
+        with:
+          path: ~/.vagrant.d/boxes
+          key: ${{ runner.os }}-vagrant
+
       - name: Install Hyper-V
         run: |
-          vagrant init gusztavvargadr/windows-10
+          vagrant init bento/ubuntu-20.04
+          # vagrant init gusztavvargadr/windows-10
           vagrant up
           vagrant powershell -c "Get-WindowsFeature *hyper-v*"
