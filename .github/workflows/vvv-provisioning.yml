@@ -23,5 +23,5 @@ jobs:
 
       - name: Install Hyper-V
         run: |
-          vagrant init gusztavvargadr/windows-server
+          vagrant init gusztavvargadr/windows-10
           vagrant up
