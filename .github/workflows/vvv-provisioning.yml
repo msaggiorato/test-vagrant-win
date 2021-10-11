@@ -25,7 +25,7 @@ jobs:
         uses: actions/cache@v2
         with:
           path: ~/.vagrant.d/boxes
-          key: ${{ runner.os }}-vagrant
+          key: ${{ runner.os }}-vagrant-${{ hashFiles('.github/workflows/vvv-provisioning.yml') }}
 
       - name: Install Hyper-V
         run: |
