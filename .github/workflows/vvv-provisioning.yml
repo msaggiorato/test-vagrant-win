@@ -23,10 +23,12 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
 
-      - name: Install Vagrant
-        continue-on-error: true
-        run: choco install vagrant
+      - run: Enable-WindowsOptionalFeature -Online -FeatureName  Microsoft-Hyper-V-Management-PowerShell
 
-      - name: Vagrant
-        run: |
-          C:\HashiCorp\Vagrant\bin\vagrant.exe up
+      #- name: Install Vagrant
+      #  continue-on-error: true
+      #  run: choco install vagrant
+
+      #- name: Vagrant
+      #  run: |
+      #    C:\HashiCorp\Vagrant\bin\vagrant.exe up
