@@ -29,6 +29,4 @@ jobs:
 
       - name: Vagrant
         run: |
-          refreshenv
-
-          vagrant up
+          C:\HashiCorp\Vagrant\bin\vagrant.exe up
