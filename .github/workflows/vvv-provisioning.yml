@@ -25,3 +25,4 @@ jobs:
         run: |
           vagrant init gusztavvargadr/windows-10
           vagrant up
+          vagrant powershell -c "Get-WindowsFeature *hyper-v*"
