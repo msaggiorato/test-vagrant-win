@@ -29,7 +29,6 @@ jobs:
 
       - name: Install Hyper-V
         run: |
-          vagrant init bento/ubuntu-20.04
-          # vagrant init gusztavvargadr/windows-10
+          vagrant init gusztavvargadr/windows-10
           vagrant up
-          # vagrant powershell -c "Get-WindowsFeature *hyper-v*"
+          vagrant powershell -c "Get-WindowsFeature *hyper-v*"
