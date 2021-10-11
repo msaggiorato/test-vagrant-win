@@ -1,0 +1,33 @@
+# This is a basic workflow to help you get started with Actions
+
+name: Provisioning
+
+# Controls when the action will run. Triggers the workflow on push or pull request
+# events but only for the develop branch
+on:
+  push:
+    branches: [ develop ]
+  pull_request:
+    branches: [ develop, master ]
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+  # This workflow contains a single job called "build"
+  build:
+    name: Run Provisioner
+    # The type of runner that the job will run on
+    runs-on: macos-10.15
+
+    # Steps represent a sequence of tasks that will be executed as part of the job
+    steps:
+
+      - name: Cache Vagrant boxes
+        uses: actions/cache@v2
+        with:
+          path: ~/.vagrant.d/boxes
+          key: ${{ runner.os }}-vagrant-${{ hashFiles('.github/workflows/vvv-provisioning.yml') }}
+
+      - name: Install Hyper-V
+        run: |
+          vagrant init gusztavvargadr/windows-10
+          vagrant up
