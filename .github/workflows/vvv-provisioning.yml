@@ -23,7 +23,7 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
 
-      - run: Enable-WindowsOptionalFeature -Online -FeatureName  Microsoft-Hyper-V-Management-PowerShell
+      - run: Install-WindowsFeature -Name Hyper-V-PowerShell
 
       #- name: Install Vagrant
       #  continue-on-error: true
