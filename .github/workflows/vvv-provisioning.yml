@@ -25,10 +25,10 @@ jobs:
 
       - run: Install-WindowsFeature -Name Hyper-V-PowerShell
 
-      #- name: Install Vagrant
-      #  continue-on-error: true
-      #  run: choco install vagrant
+      - name: Install Vagrant
+        continue-on-error: true
+        run: choco install vagrant
 
-      #- name: Vagrant
-      #  run: |
-      #    C:\HashiCorp\Vagrant\bin\vagrant.exe up
+      - name: Vagrant
+        run: |
+          C:\HashiCorp\Vagrant\bin\vagrant.exe up
