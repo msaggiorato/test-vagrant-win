@@ -23,7 +23,13 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
 
-      - run: Install-WindowsFeature -Name Hyper-V-PowerShell
+      - name: Install Hyper-V
+        run: |
+          Install-WindowsFeature -Name Hyper-V-PowerShell
+
+          Install-WindowsFeature -Name Hyper-V -IncludeManagementTools
+
+          Get-WindowsFeature *hyper-v*
 
       - name: Install Vagrant
         continue-on-error: true
